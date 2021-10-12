@@ -11,7 +11,7 @@ To use this template, add `--template component-library-rollup` when creating a 
 
 For example:
 
-```javascript
+```bash
 npx create-react-app my-app --template component-library-rollup`
 
 # or
