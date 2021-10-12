@@ -1,8 +1,6 @@
 # cra-template-component-library-rollup
 
-```
 [![Maintenance Status][status-image]][status-url] [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][deps-image]][deps-url] [![Code Climate][climate-image]][climate-url] [![Tidelift][tidelift-image]][tidelift-url]
-```
 
 This is a component library template for [Create React App](https://github.com/facebook/create-react-app). It comes kitted with all the necessary tools you need to easily create your very own component library, and has a readily configured rollup bundler upon building.
 
