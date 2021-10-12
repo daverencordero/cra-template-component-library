@@ -12,9 +12,10 @@ To use this template, add `--template component-library-rollup` when creating a 
 For example:
 
 ```javascript
-npx create-react-app my-app --template typescript
+npx create-react-app my-app --template component-library-rollup`
 
 # or
 
-yarn create react-app my-app --template typescript
+yarn create react-app my-app --template component-library-rollup`
 ```
+
