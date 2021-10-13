@@ -5,6 +5,7 @@ import pkg from './package.json';
 import visualizer from 'rollup-plugin-visualizer';
 import del from 'rollup-plugin-delete';
 import image from '@rollup/plugin-image'
+import resolve from '@rollup/plugin-node-resolve';
 import {terser} from 'rollup-plugin-terser';
 
 const svgr = require('@svgr/rollup').default
@@ -16,6 +17,7 @@ const config = [
             { file: pkg.main, format: 'cjs' }
         ],
         plugins: [
+            resolve(),
             babel({
                 exclude: 'node_modules/**',
                 babelHelpers: 'bundled'
