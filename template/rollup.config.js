@@ -40,7 +40,8 @@ const config = [
                 template: 'treemap'
             }),
             del({ targets: ['dist/*'] })
-        ]
+        ],
+        external: ['react', 'react-dom', 'prop-types']
     }
 ]
 
