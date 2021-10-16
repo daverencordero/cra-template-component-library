@@ -9,6 +9,9 @@
     "scss",
     "storybook"
   ],
+  "scripts": {
+    "generate": "cd generated && npx create-react-app . --template file:.."
+  },
   "description": "A CRA template for building component libraries.",
   "repository": {
     "type": "git",

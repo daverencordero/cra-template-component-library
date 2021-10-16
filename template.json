@@ -3,6 +3,7 @@
     "main": "dist/index.js",
     "source": "src/index.js",
     "scripts": {
+      "init": "node clinit.js",
       "prestart": "sb init",
       "start": "npm run storybook",
       "test": "react-scripts test",
