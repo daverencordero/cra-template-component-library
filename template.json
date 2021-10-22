@@ -3,12 +3,12 @@
     "main": "dist/index.js",
     "source": "src/index.js",
     "scripts": {
-      "init": "node clinit.js",
-      "prestart": "sb init",
       "start": "npm run storybook",
+      "build": "rollup -c --exports auto",
       "test": "react-scripts test",
       "eject": "react-scripts eject",
-      "build": "rollup -c --exports auto",
+      "init": "node clinit.js",
+      "prestart": "sb init",
       "lint": "eslint src",
       "lint-fix": "eslint src --fix"
     },
@@ -26,6 +26,7 @@
       "@babel/core": "^7.15.0",
       "@babel/preset-env": "^7.15.0",
       "@babel/preset-react": "^7.14.5",
+      "@babel/preset-typescript": "^7.15.0",
       "@storybook/cli": "^6.3.11",
       "sass": "^1.37.5",
       "postcss": "^8.3.6",
