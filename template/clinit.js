@@ -1,6 +1,6 @@
 const {Command, Option} = require('commander');
 const {execSync}  = require('child_process');
-const {terminal} = require('terminal-kit');
+const term = require( 'terminal-kit' ).terminal;
 const fs = require('fs');
 
 /**
@@ -72,8 +72,32 @@ class OptionsHandler {
      * @param packageHandler {object} - An instance of the Config Handler
      */
     constructor(options, packageHandler) {
+        this.renderTitle();
         this.options = options;
         this.packageHandler = packageHandler;
+    }
+
+    renderTitle() {
+        term.cyan(
+            '\n' +
+            '  .oooooo.   oooo   o8o               o8o      .   \n' +
+            ' d8P\'  `Y8b  `888   `"\'               `"\'    .o8   \n' +
+            '888           888  oooo  ooo. .oo.   oooo  .o888oo \n' +
+            '888           888  `888  `888P"Y88b  `888    888   \n' +
+            '888           888   888   888   888   888    888   \n' +
+            '`88b    ooo   888   888   888   888   888    888 . \n' +
+            ' `Y8bood8P\'  o888o o888o o888o o888o o888o   "888" \n' +
+            '\n'
+        );
+        term.bgYellow('Help').bgDefaultColor();
+        term('\n')
+        term.yellow('-t').cyan(' --typescript').defaultColor('\t : typescript\n')
+        term.yellow('-s').cyan(' --styles').defaultColor('\t : css pre-processor (SCSS)\n')
+        term('\n')
+        term.bgYellow('Syntax').bgDefaultColor();
+        term('\n');
+        term('npm run').cyan(' init').yellow(' -- <args> (options)\n');
+        term('\n');
     }
 
     parse() {
@@ -85,15 +109,20 @@ class OptionsHandler {
     addsTypescript = () => {
         const dependencies = [
             'typescript',
+            "@types/jest",
+            "@types/node",
+            "@types/react",
+            "@types/react-dom",
             '@rollup/plugin-typescript',
             '@typescript-eslint/eslint-plugin',
             '@typescript-eslint/parser',
             'eslint-plugin-tsdoc'
         ]
-        const current_config = this.packageHandler.getConfig()
-        const has_typescript = dependencies.every(dep => dep in current_config?.devDependencies);
 
+        const has_typescript = dependencies.every(dep => dep in this.packageHandler?.getConfig()?.devDependencies);
         if (has_typescript) return;
+
+        term.bgBlue('Adding').bgDefaultColor(' Typescript...');
 
         const dependency_string = dependencies.join(' ')
 
@@ -120,13 +149,19 @@ class OptionsHandler {
         const has_pre_processor = dependencies.every(dep => dep in this.packageHandler?.getConfig()?.devDependencies);
         if (has_pre_processor) return;
 
+        term.bgBlue('Adding').bgDefaultColor(` Pre Processor (${pre_processor})...`);
+
         const dependency_string = dependencies.join(' ');
 
         execSync(`npm i -D ${dependency_string}`, {stdio: 'inherit'})
     }
 }
 
-// SCRIPT PROPER
+/**
+ *   SCRIPT PROPER
+ * =================
+ * */
+
 const packageHandler = new PackageHandler();
 const programHandler = new ProgramHandler();
 

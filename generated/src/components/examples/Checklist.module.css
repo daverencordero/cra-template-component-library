@@ -1,0 +1,102 @@
+.Checklist {
+  display: flex;
+  overflow: hidden;
+  padding: 1rem;
+  flex-direction: column;
+}
+.Checklist .Header {
+  display: flex;
+  align-items: center;
+  margin: 0 0 0.5rem;
+  font-family: sans-serif;
+}
+.Checklist .Header .AddButton {
+  cursor: pointer;
+  margin: 0 1rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 50vh;
+  font-size: 1rem;
+  border: 0.05rem solid #2D93AD;
+}
+.Checklist .Header .AddButton:hover {
+  color: white;
+  background-color: #2D93AD;
+}
+.Checklist .List {
+  flex: 1;
+  overflow: auto;
+  padding: 0.5rem;
+}
+.Checklist .List_Item {
+  height: 1rem;
+  display: flex;
+  padding: 0.45rem;
+  align-items: center;
+  border-radius: 0.25rem;
+}
+.Checklist .List_Item .Checkbox {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  width: 1rem;
+  height: 1rem;
+  line-height: 0;
+  border-radius: 0.25rem;
+  user-select: none;
+  border: 0.05rem solid #2D93AD;
+  margin-right: 0.5rem;
+  transition: background-color 0.2s, color 0.2s;
+}
+.Checklist .List_Item .Checkbox.Checked {
+  color: white;
+  background-color: #2D93AD;
+  transition: inherit;
+}
+.Checklist .List_Item .Checkbox:hover {
+  color: white;
+  background-color: #2D93AD;
+  transition: inherit;
+}
+.Checklist .List_Item .Label {
+  padding: 0.15rem;
+  font-size: 0.9rem;
+  font-family: sans-serif;
+  border-radius: 0.25rem;
+}
+.Checklist .List_Item .Label:hover {
+  cursor: text;
+}
+.Checklist .List_Item .Label .EditInput {
+  display: flex;
+  align-items: center;
+}
+.Checklist .List_Item .Label .EditInput .InputField {
+  cursor: text;
+  outline: none;
+  margin-right: 0.5rem;
+  background-color: white;
+  border: 0.05rem solid #e7e7e9;
+}
+.Checklist .List_Item .Label .EditInput .CloseInput {
+  height: 1rem;
+  width: 1rem;
+  user-select: none;
+  font-size: 0.8rem;
+  border-radius: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1rem;
+  cursor: pointer;
+  color: #9797a0;
+  background-color: #e7e7e9;
+  transition: background-color 0.2s;
+}
+.Checklist .List_Item .Label .EditInput .CloseInput:hover {
+  background-color: #d9d9dd;
+  transition: inherit;
+}
+
+/*# sourceMappingURL=Checklist.module.css.map */

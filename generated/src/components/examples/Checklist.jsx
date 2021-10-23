@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types'
-import Styles from './Checklist.module.scss'
+import Styles from './Checklist.module.css'
 
 /**
  * A simple scalable checklist component

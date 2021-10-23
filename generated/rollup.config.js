@@ -8,6 +8,10 @@ import image from '@rollup/plugin-image'
 import resolve from '@rollup/plugin-node-resolve';
 import {terser} from 'rollup-plugin-terser';
 
+const fs = require('fs');
+const packageDefinitions = JSON.parse(fs.readFileSync('package.json').toString());
+const typescript = 'typescript' in packageDefinitions?.devDependencies ? require('@rollup/plugin-typescript') : null;
+
 const svgr = require('@svgr/rollup').default
 
 const config = [
@@ -25,13 +29,14 @@ const config = [
                 babelHelpers: 'bundled',
                 exclude: 'node_modules/**'
             }),
-            image(),
             svgr(),
+            image(),
             postcss({
                 extract: true,
                 minimize: true
             }),
             terser(),
+            ...(typescript ? [typescript({tsconfig: './tsconfig.json'})] : []),
             autoExternal({
                 builtins: false,
                 dependencies: true,
@@ -44,7 +49,7 @@ const config = [
             }),
             del({targets: ['dist/*']})
         ],
-        external: ['react', 'react-dom', 'prop-types']
+        external: ['react', 'react-dom', 'react-scripts', 'prop-types']
     }
 ]
 
