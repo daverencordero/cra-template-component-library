@@ -134,7 +134,7 @@ class OptionsHandler {
                 ...prevConfig.eslintConfig,
                 plugins: [
                     ...(prevConfig.eslintConfig.plugins||[]),
-                    ...(!prevConfig.eslintConfig.plugins.includes("eslint-plugin-tsdoc")
+                    ...(!("eslint-plugin-tsdoc" in prevConfig.eslintConfig?.plugins||{})
                         ? ["eslint-plugin-tsdoc"]
                         : [])
                 ]
