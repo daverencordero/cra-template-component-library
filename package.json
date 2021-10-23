@@ -1,6 +1,6 @@
 {
-  "name": "cra-template-component-library-rollup",
-  "version": "0.1.1",
+  "name": "cra-template-component-library",
+  "version": "0.1.2",
   "keywords": [
     "react",
     "create-react-app",
@@ -15,14 +15,14 @@
   "description": "A CRA template for building component libraries.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/daverencordero/cra-template-component-library-rollup.git"
+    "url": "https://github.com/daverencordero/cra-template-component-library.git"
   },
   "license": "MIT",
   "engines": {
     "node": ">=14"
   },
   "bugs": {
-    "url": "https://github.com/daverencordero/cra-template-component-library-rollup/issues"
+    "url": "https://github.com/daverencordero/cra-template-component-library/issues"
   },
   "files": [
     "template",
