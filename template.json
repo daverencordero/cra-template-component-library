@@ -40,11 +40,28 @@
       "rollup-plugin-postcss": "^4.0.1",
       "rollup-plugin-terser": "^7.0.2",
       "rollup-plugin-visualizer": "^5.5.2",
-      "commander": "^8.3.0",
-      "terminal-kit": "^2.1.8"
+      "typescript": "^4.4.4",
+      "@types/jest": "^26.0.24",
+      "@types/node": "^12.20.19",
+      "@types/react": "^17.0.17",
+      "@types/react-dom": "^17.0.9",
+      "@rollup/plugin-typescript": "^8.2.5",
+      "@typescript-eslint/eslint-plugin": "^4.31.2",
+      "@typescript-eslint/parser": "^4.31.2",
+      "eslint-plugin-tsdoc": "^0.2.14"
     },
     "eslintConfig": {
-      "extends": ["react-app", "react-app/jest"]
+      "extends": [
+        "react-app",
+        "react-app/jest"
+      ],
+      "plugins": [
+        "eslint-plugin-tsdoc"
+      ],
+      "rules": {
+        "react-hooks/exhaustive-deps": "off",
+        "tsdoc/syntax": "warn"
+      }
     }
   }
 }
