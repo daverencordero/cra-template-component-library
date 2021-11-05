@@ -5,9 +5,10 @@ import pkg from './package.json';
 import visualizer from 'rollup-plugin-visualizer';
 import del from 'rollup-plugin-delete';
 import image from '@rollup/plugin-image'
-import resolve from '@rollup/plugin-node-resolve';
+import nodeResolve from '@rollup/plugin-node-resolve';
 import {terser} from 'rollup-plugin-terser';
 import typescript from '@rollup/plugin-typescript';
+import commonjs from "@rollup/plugin-commonjs";
 
 const svgr = require('@svgr/rollup').default
 
@@ -18,13 +19,9 @@ const config = [
             { file: pkg.main, format: 'cjs' }
         ],
         plugins: [
-            resolve({
+            nodeResolve({
                 mainFields: ['main'],
                 extensions: ['.js', '.jsx']
-            }),
-            babel({
-                babelHelpers: 'bundled',
-                exclude: 'node_modules/**'
             }),
             svgr(),
             image(),
@@ -34,6 +31,7 @@ const config = [
             }),
             terser(),
             typescript({tsconfig: './tsconfig.json'}),
+            commonjs(),
             autoExternal({
                 builtins: false,
                 dependencies: true,
@@ -43,6 +41,10 @@ const config = [
             visualizer({
                 title: 'visualizer',
                 template: 'treemap'
+            }),
+            babel({
+                babelHelpers: 'bundled',
+                exclude: 'node_modules/**'
             }),
             del({targets: ['dist/*']})
         ],
